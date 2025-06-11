@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1100</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>1000</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <family>Bahnschrift</family>
+    <pointsize>12</pointsize>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>B-Task</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>40</width>
+    <height>40</height>
+   </size>
+  </property>
+  <property name="documentMode">
+   <bool>false</bool>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::TabShape::Rounded</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
+    <item>
+     <widget class="QWidget" name="tasksBlock" native="true">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="newTaskButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Bahnschrift SemiBold</family>
+           <pointsize>14</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	icon: url(:/pictures/resources/add-circle-plus.svg);
+background-color: rgb(230,230,217);
+	border-radius: 5px;
+	border: 2px solid gray;
+	color: black;
+}
+QPushButton:hover {
+	icon: url(:/pictures/resources/add-circle-plus-gray.svg);
+	background-color: rgb(247,223,156);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>новая задача</string>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_Folders">
+           <property name="text">
+            <string>Папки</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="newFolderButton">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>20</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	image: url(:/pictures/resources/add-circle-plus-gray.svg);
+	background-color: rgba(230,230,217,0);
+	border: none;
+}
+QPushButton:hover {
+	image: url(:/pictures/resources/add-circle-plus.svg);
+}
+</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="flat">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>200</height>
+          </size>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>339</width>
+            <height>425</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2"/>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="calendarBlock" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,0">
+       <item>
+        <layout class="QVBoxLayout" name="calendarLayout"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QPushButton" name="displayTasksOfSelectedDayButton">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>280</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background-color: rgb(230,230,217);
+	border-radius: 5px;
+	border: 2px solid gray;
+	color: black;
+}
+QPushButton:hover {
+	background-color: rgb(247,223,156);
+}
+</string>
+           </property>
+           <property name="text">
+            <string>показать задачи выбранного дня</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="backToTodayButton">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Bahnschrift</family>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QPushButton {
+	background-color: rgb(230,230,217);
+	border-radius: 5px;
+	border: 2px solid gray;
+	color: black;
+}
+QPushButton:hover {
+	background-color: rgb(247,223,156);
+}
+</string>
+           </property>
+           <property name="text">
+            <string>сброс</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1100</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>16</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+   <widget class="QMenu" name="menuMenu">
+    <property name="font">
+     <font>
+      <family>Bahnschrift</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QMenu {
+background-color: white;
+border: 2px solid gray;
+border-radius: 7px;
+padding: 4px 4px;
+}
+QMenu::item:selected {
+background-color: rgb(247,223,156);
+border-radius: 5px;
+}</string>
+    </property>
+    <property name="title">
+     <string>Меню</string>
+    </property>
+    <widget class="QMenu" name="menu_4">
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QMenu {
+background-color: white;
+border: 2px solid gray;
+border-radius: 7px;
+padding: 4px 4px;
+font-family: Bahnschrift;
+}
+QMenu::item:selected {
+background-color: rgb(247,223,156);
+border-radius: 5px;
+}</string>
+     </property>
+     <property name="title">
+      <string>Экспорт</string>
+     </property>
+     <addaction name="actionExportToJSON"/>
+     <addaction name="actionExportToCSV"/>
+    </widget>
+    <addaction name="menuUpdateUi"/>
+    <addaction name="menu_calendar"/>
+    <addaction name="menu_4"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="styleSheet">
+     <string notr="true">QMenu {
+background-color: white;
+border: 2px solid gray;
+border-radius: 7px;
+padding: 4px 4px;
+}
+QMenu::item {
+background-color: white;
+border-radius: 5px;
+padding: 4px 4px;
+font-family: Bahnschrift;
+font-size: 16px;
+}
+QMenu::item:selected {
+background-color: rgb(247,223,156);
+border-radius: 5px;
+}</string>
+    </property>
+    <property name="title">
+     <string>Задачи</string>
+    </property>
+    <widget class="QMenu" name="menu">
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+       <pointsize>16</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QMenu {
+background-color: white;
+border: 2px solid gray;
+border-radius: 7px;
+padding: 4px 4px;
+font-family: Bahnschrift;
+}
+QMenu::item:selected {
+background-color: rgb(247,223,156);
+border-radius: 5px;
+}</string>
+     </property>
+     <property name="title">
+      <string>Сортировать</string>
+     </property>
+     <addaction name="sortByDeadline"/>
+     <addaction name="sortByStatus"/>
+     <addaction name="sortByPriority"/>
+    </widget>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>Фильтровать</string>
+     </property>
+     <addaction name="filterByDeadline"/>
+     <addaction name="filterByStatus"/>
+     <addaction name="filterByPriority"/>
+     <addaction name="separator"/>
+     <addaction name="filterByDefault"/>
+    </widget>
+    <addaction name="menu_3"/>
+    <addaction name="menu"/>
+    <addaction name="menuDeleteCompletedTasks"/>
+   </widget>
+   <addaction name="menuMenu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>12</pointsize>
+     <bold>false</bold>
+    </font>
+   </property>
+  </widget>
+  <action name="menuUpdateUi">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Обновить БД вручную</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>false</bool>
+   </property>
+   <property name="priority">
+    <enum>QAction::Priority::LowPriority</enum>
+   </property>
+  </action>
+  <action name="menuDeleteCompletedTasks">
+   <property name="text">
+    <string>Удалить выполненные</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bahnschrift</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </action>
+  <action name="menu_calendar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Календарь</string>
+   </property>
+  </action>
+  <action name="sortByDeadline">
+   <property name="text">
+    <string>сначала срочные</string>
+   </property>
+  </action>
+  <action name="sortByStatus">
+   <property name="text">
+    <string>сначала невыполненные</string>
+   </property>
+  </action>
+  <action name="sortByPriority">
+   <property name="text">
+    <string>сначала важные</string>
+   </property>
+   <property name="toolTip">
+    <string>сначала важные</string>
+   </property>
+  </action>
+  <action name="filterByDeadline">
+   <property name="text">
+    <string>по дедлайну</string>
+   </property>
+  </action>
+  <action name="filterByStatus">
+   <property name="text">
+    <string>по статусу</string>
+   </property>
+  </action>
+  <action name="filterByPriority">
+   <property name="text">
+    <string>по приоритету</string>
+   </property>
+  </action>
+  <action name="filterByDefault">
+   <property name="text">
+    <string>сбросить</string>
+   </property>
+  </action>
+  <action name="actionExportToJSON">
+   <property name="text">
+    <string>JSON</string>
+   </property>
+  </action>
+  <action name="actionExportToCSV">
+   <property name="text">
+    <string>CSV</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

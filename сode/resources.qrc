@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/pictures">
+        <file>resources/left-arrow.svg</file>
+        <file>resources/right-arrow.svg</file>
+        <file>resources/inbox.svg</file>
+        <file>resources/add-circle-plus.svg</file>
+        <file>resources/bin.png</file>
+        <file>resources/hide.png</file>
+        <file>resources/checkbox-done.svg</file>
+        <file>resources/checkbox-undone.svg</file>
+        <file>resources/checkbox-done-hover.svg</file>
+        <file>resources/checkbox-undone-hover.svg</file>
+        <file>resources/B-Task-logo.svg</file>
+        <file>resources/calendar-selected-date.svg</file>
+        <file>resources/add-circle-plus-gray.svg</file>
+        <file>resources/color-blue.svg</file>
+        <file>resources/color-green.svg</file>
+        <file>resources/color-red.svg</file>
+        <file>resources/color-white.svg</file>
+        <file>resources/color-blue-checked.svg</file>
+        <file>resources/color-green-checked.svg</file>
+        <file>resources/color-red-checked.svg</file>
+        <file>resources/color-white-checked.svg</file>
+        <file>resources/green-exc.svg</file>
+        <file>resources/red-exc.svg</file>
+        <file>resources/color-blue-big.svg</file>
+        <file>resources/color-green-big.svg</file>
+        <file>resources/color-red-big.svg</file>
+        <file>resources/color-white-big.svg</file>
+        <file>resources/blank.png</file>
+        <file>resources/green-exc-mini.svg</file>
+        <file>resources/red-exc-mini.svg</file>
+    </qresource>
+</RCC>

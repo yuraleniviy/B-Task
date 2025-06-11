@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TaskCreationWindow</class>
+ <widget class="QDialog" name="TaskCreationWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>301</width>
+    <height>356</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Bahnschrift</family>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Создание задачи</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <widget class="QLineEdit" name="creationTaskName">
+     <property name="text">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>задача...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPlainTextEdit" name="creationTaskNote">
+     <property name="plainText">
+      <string/>
+     </property>
+     <property name="placeholderText">
+      <string>добавить заметку...</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>папка</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="creationTaskFolder">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="currentText">
+          <string/>
+         </property>
+         <property name="currentIndex">
+          <number>-1</number>
+         </property>
+         <property name="placeholderText">
+          <string/>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,1">
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>приоритет</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="creationTaskPriority">
+         <property name="currentIndex">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="1,1">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>длительность</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="creationTaskDuration"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,1">
+       <item>
+        <widget class="QCheckBox" name="creationTaskIsDeadline">
+         <property name="styleSheet">
+          <string notr="true">QCheckBox::indicator:unchecked{
+	image: url(:/pictures/resources/checkbox-undone.svg);
+	width: 16;
+	height: 16;
+}
+QCheckBox::indicator:checked{
+	image: url(:/pictures/resources/checkbox-undone-hover.svg);
+	width: 16;
+	height: 16;
+}</string>
+         </property>
+         <property name="text">
+          <string>дедлайн</string>
+         </property>
+         <property name="tristate">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QDateEdit" name="creationTaskDeadline">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>100</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>135</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>500</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QCalendarWidget {
+	font-family: Bahnschrift;
+	font-size: 16px;
+    background-color: white;
+}
+
+QTableView::item {
+    border-radius: 30px;
+}
+
+QTableView::item:selected {
+    image: url(:/pictures/resources/calendar-selected-date.svg);
+    background-color: rgba(247,223,156,0);
+}
+
+QTableView:focus {
+    outline: none;
+}
+
+QTableView:disabled {
+    color: rgba(0, 0, 0, 100);
+}
+
+QCalendarWidget QAbstractItemView::item:enabled[today=&quot;true&quot;] {
+    color: red;
+    font-weight: bold;
+}
+
+QWidget#qt_calendar_navigationbar {
+    background-color: rgb(247,223,156);
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
+QToolButton {
+    color: black;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+#qt_calendar_nextmonth {
+    icon-size: 30px;
+    qproperty-icon: url(:/pictures/resources/right-arrow.svg);
+    border-radius: 5px;
+}
+
+#qt_calendar_prevmonth {
+    icon-size: 30px;
+    qproperty-icon: url(:/pictures/resources/left-arrow.svg);
+    border-radius: 5px;
+}
+
+QMenu {
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 7px;
+    padding: 4px 4px;
+    font-family: Bahnschrift;
+    font-size: 16px;
+}
+
+QMenu::item:selected {
+    background-color: rgb(247,223,156);
+    border-radius: 5px;
+}
+
+QSpinBox {
+    background-color: rgb(247,223,156);
+    width: 80px;
+}
+</string>
+         </property>
+         <property name="calendarPopup">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="0,0">
+         <item>
+          <widget class="QCheckBox" name="creationTaskIsReminder">
+           <property name="styleSheet">
+            <string notr="true">QCheckBox::indicator:unchecked{
+	image: url(:/pictures/resources/checkbox-undone.svg);
+	width: 16;
+	height: 16;
+}
+QCheckBox::indicator:checked{
+	image: url(:/pictures/resources/checkbox-undone-hover.svg);
+	width: 16;
+	height: 16;
+}</string>
+           </property>
+           <property name="text">
+            <string>напомнить</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDateTimeEdit" name="creationTaskReminder">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QCalendarWidget {
+	font-family: Bahnschrift;
+	font-size: 16px;
+    background-color: white;
+}
+
+QTableView::item {
+    border-radius: 30px;
+}
+
+QTableView::item:selected {
+    image: url(:/pictures/resources/calendar-selected-date.svg);
+    background-color: rgba(247,223,156,0);
+}
+
+QTableView:focus {
+    outline: none;
+}
+
+QTableView:disabled {
+    color: rgba(0, 0, 0, 100);
+}
+
+QCalendarWidget QAbstractItemView::item:enabled[today=&quot;true&quot;] {
+    color: red;
+    font-weight: bold;
+}
+
+QWidget#qt_calendar_navigationbar {
+    background-color: rgb(247,223,156);
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
+QToolButton {
+    color: black;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+#qt_calendar_nextmonth {
+    icon-size: 30px;
+    qproperty-icon: url(:/pictures/resources/right-arrow.svg);
+    border-radius: 5px;
+}
+
+#qt_calendar_prevmonth {
+    icon-size: 30px;
+    qproperty-icon: url(:/pictures/resources/left-arrow.svg);
+    border-radius: 5px;
+}
+
+QMenu {
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 7px;
+    padding: 4px 4px;
+    font-family: Bahnschrift;
+    font-size: 16px;
+}
+
+QMenu::item:selected {
+    background-color: rgb(247,223,156);
+    border-radius: 5px;
+}
+
+QSpinBox {
+    background-color: rgb(247,223,156);
+    width: 80px;
+}
+</string>
+           </property>
+           <property name="frame">
+            <bool>true</bool>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_7"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="closeTaskButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Bahnschrift</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(230,230,217);
+	border-radius: 5px;
+	border: 2px solid gray;
+	color: black;
+}
+QPushButton:hover {
+	background-color: rgb(247,223,156);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>закрыть</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="saveTaskButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Bahnschrift</family>
+         <pointsize>12</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(247,223,156);
+	border-radius: 5px;
+	border: 2px solid gray;
+	color: black;
+}
+QPushButton:hover {
+	background-color: rgb(171, 153, 99);
+}
+</string>
+       </property>
+       <property name="text">
+        <string>сохранить</string>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
